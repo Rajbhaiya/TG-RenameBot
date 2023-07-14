@@ -18,4 +18,4 @@ class Config(object):
     DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./bot/DOWNLOADS")
     DB_URI = os.environ.get("DATABASE_URL", "postgres://kkktawwp:c9JreackKuiGxphwp0jDXlPilw4SFKLv@mouse.db.elephantsql.com/kkktawwp")
     # owner is for log cmd only owner can use (this can be multiple users)
-    OWNER_ID = [int(i) for i in os.environ.get("OWNER_ID", "5591954930")
+    OWNER_ID = [int(i) for i in os.environ.get("OWNER_ID", "5591954930")]
