@@ -17,5 +17,5 @@ class Config(object):
     DB_URI = os.environ.get("DATABASE_URL", "postgres://kkktawwp:c9JreackKuiGxphwp0jDXlPilw4SFKLv@mouse.db.elephantsql.com/kkktawwp")
     # owner is for log cmd only owner can use (this can be multiple users)
     OWNER_ID = [int(i) for i in os.environ.get("OWNER_ID", "5591954930")
-    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "cant_think_1")
+    OWNER_USERNAME = cant_think_1
     CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", False)
