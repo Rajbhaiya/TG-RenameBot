@@ -10,7 +10,7 @@ import os
 
 class Config(object):
     CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", False)
-    OWNER_USERNAME = cant_think_1
+    OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "cant_think_1")
     APP_ID = int(os.environ.get("APP_ID", "13675555"))
     API_HASH = os.environ.get("API_HASH", "c0da9c346d2c45dbc7ec49a05da9b2b6")
     TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "6113104447:AAHHE56nNSAQEr6KBbCN4vNEwNjki_8q7ZY")
