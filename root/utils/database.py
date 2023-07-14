@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
 import threading
-from sqlalchemy import Column, BigInteger
+from sqlalchemy import Column, Integer
 from root.config import Config
 
 def start() -> scoped_session:
@@ -19,8 +19,8 @@ INSERTION_LOCK = threading.RLock()
 
 class Thumbnail(BASE):
     __tablename__ = "thumbnail"
-    id = Column(BigInteger, primary_key=True)
-    msg_id = Column(BigInteger, primary_key=True)
+    id = Column(Integer, primary_key=True)
+    msg_id = Column(Integer)
 
     def __init__(self, id, msg_id):
         self.id = id
