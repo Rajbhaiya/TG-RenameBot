@@ -41,7 +41,7 @@ async def log_msg(c,m):
   else:
     await z.edit_text("Log file not found")
 
-async def force_join(c, m) -> None:
+async def force_join(c, m):
     if Config.FORCEJOIN != "":
         try:
             user_state = await client.get_chat_member(Config.FORCEJOIN_ID, msg.from_user.id)
@@ -53,10 +53,10 @@ async def force_join(c, m) -> None:
             await msg.reply_text("Join the given chat in order to use this bot.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Updates Channel", url=f"{forcejoin}")]]))
             return
         except ChatAdminRequired:
-            renamelog.error("The bot is not the admin in the chat make it admin first.")
+            log.error("The bot is not the admin in the chat make it admin first.")
             return
         except UsernameNotOccupied:
-            renamelog.error("Invalid FORCEJOIN ID can find that chat.")
+            log.error("Invalid FORCEJOIN ID can find that chat.")
             return
         except Exception as e:
             log.error(str(e))
