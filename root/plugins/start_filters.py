@@ -59,8 +59,8 @@ async def force_join(c, m):
         except UsernameNotOccupied:
             log.error("Invalid FORCEJOIN ID can find that chat.")
             return
-        except Exception as e:
-            log.error(str(e))
+        except:
+            log.exception("The ID should be of the channel/ group that you want the user to join.")
             return
 
     await msg.continue_propagation()
