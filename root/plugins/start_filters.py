@@ -20,7 +20,7 @@ async def start_msg(c,m):
        await m.reply_text(
             text=Translation.START_TEXT,
             quote=True, 
-            reply_markup= InlineKeyboardMarkup([[InlineKeyboardButton('⋆ Support ⋆', url=f"https://t.me/WizardBotHelper"),InlineKeyboardButton('⋆ 𝙾𝚠𝚗𝚎𝚛 ⋆', url="https://t.me/{Config.OWNER_USERNAME}")]]))
+            reply_markup= InlineKeyboardMarkup([[InlineKeyboardButton('⋆ Support ⋆', url=f"https://t.me/WizardBotHelper"),InlineKeyboardButton('⋆ 𝙾𝚠𝚗𝚎𝚛 ⋆', url="https://t.me/cant_think_1")]]))
     except Exception as e:
         log.error(str(e))
 
@@ -61,5 +61,5 @@ async def force_join(c, m) -> None:
         except:
             renamelog.exception("The ID should be of the channel/ group that you want the user to join.")
             return
-
-    await msg.continue_propagation()
+        except Exception as e:
+            log.error(str(e))
