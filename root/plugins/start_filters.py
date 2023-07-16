@@ -21,11 +21,11 @@ async def force_join(c, m):
         try:
             user_state = await c.get_chat_member(Config.FORCEJOIN_ID, msg.from_user.id)
             if user_state.status == "kicked":
-                await msg.reply_text("You were kicked from the chat. You can't use this bot.")
+                await m.reply_text("You were kicked from the chat. You can't use this bot.")
                 return
         except UserNotParticipant:
             forcejoin = Config.FORCEJOIN
-            await msg.reply_text("Join the given chat in order to use this bot.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Updates Channel", url=f"{forcejoin}")]]))
+            await m.reply_text("Join the given chat in order to use this bot.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Updates Channel", url=f"{forcejoin}")]]))
             return
         except ChatAdminRequired:
             log.error("The bot is not the admin in the chat make it admin first.")
