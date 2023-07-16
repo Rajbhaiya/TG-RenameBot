@@ -15,6 +15,31 @@ from root.messages import Translation
 log = logging.getLogger(__name__)
 
 
+@Client.on_message(filters.private)
+async def force_join(c, m):
+    if Config.FORCEJOIN != "":
+        try:
+            user_state = await client.get_chat_member(Config.FORCEJOIN_ID, msg.from_user.id)
+            if user_state.status == "kicked":
+                await msg.reply_text("You were kicked from the chat. You can't use this bot.")
+                return
+        except UserNotParticipant:
+            forcejoin = Config.FORCEJOIN
+            await msg.reply_text("Join the given chat in order to use this bot.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Updates Channel", url=f"{forcejoin}")]]))
+            return
+        except ChatAdminRequired:
+            log.error("The bot is not the admin in the chat make it admin first.")
+            return
+        except UsernameNotOccupied:
+            log.error("Invalid FORCEJOIN ID can find that chat.")
+            return
+        except:
+            log.exception("The ID should be of the channel/ group that you want the user to join.")
+            return
+
+    await msg.continue_propagation()
+
+
 @Client.on_message(filters.command("start"))
 async def start_msg(c,m):
     try:
@@ -41,26 +66,3 @@ async def log_msg(c,m):
      await z.delete()
   else:
     await z.edit_text("Log file not found")
-
-async def force_join(c, m):
-    if Config.FORCEJOIN != "":
-        try:
-            user_state = await client.get_chat_member(Config.FORCEJOIN_ID, msg.from_user.id)
-            if user_state.status == "kicked":
-                await msg.reply_text("You were kicked from the chat. You can't use this bot.")
-                return
-        except UserNotParticipant:
-            forcejoin = Config.FORCEJOIN
-            await msg.reply_text("Join the given chat in order to use this bot.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Updates Channel", url=f"{forcejoin}")]]))
-            return
-        except ChatAdminRequired:
-            log.error("The bot is not the admin in the chat make it admin first.")
-            return
-        except UsernameNotOccupied:
-            log.error("Invalid FORCEJOIN ID can find that chat.")
-            return
-        except:
-            log.exception("The ID should be of the channel/ group that you want the user to join.")
-            return
-
-    await msg.continue_propagation()
