@@ -20,11 +20,7 @@ async def start_msg(c,m):
        await m.reply_text(
             text=Translation.START_TEXT,
             quote=True, 
-            reply_markup=InlineKeyboardMarkup([[
-               InlineKeyboardButton(
-               "Owner ", 
-               url=f"https://t.me/{Config.OWNER_USERNAME}")
-             ]]) , 
+            reply_markup= InlineKeyboardMarkup([[InlineKeyboardButton('⋆ Support ⋆', url=f"https://t.me/WizardBotHelper"),InlineKeyboardButton('⋆ 𝙾𝚠𝚗𝚎𝚛 ⋆', url="https://t.me/{OWNER_USERNAME}")]]))
             disable_web_page_preview=True
       ) 
     except Exception as e:
@@ -46,3 +42,26 @@ async def log_msg(c,m):
      await z.delete()
   else:
     await z.edit_text("Log file not found")
+
+async def force_join(client: Client, msg: Message) -> None:
+    if Config.FORCEJOIN != "":
+        try:
+            user_state = await client.get_chat_member(Config.FORCEJOIN_ID, msg.from_user.id)
+            if user_state.status == "kicked":
+                await msg.reply_text("You were kicked from the chat. You can't use this bot.")
+                return
+        except UserNotParticipant:
+            forcejoin = Config.FORCEJOIN
+            await msg.reply_text("Join the given chat in order to use this bot.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Updates Channel", url=f"{forcejoin}")]]))
+            return
+        except ChatAdminRequired:
+            renamelog.error("The bot is not the admin in the chat make it admin first.")
+            return
+        except UsernameNotOccupied:
+            renamelog.error("Invalid FORCEJOIN ID can find that chat.")
+            return
+        except:
+            renamelog.exception("The ID should be of the channel/ group that you want the user to join.")
+            return
+
+    await msg.continue_propagation()
