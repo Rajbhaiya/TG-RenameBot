@@ -63,3 +63,4 @@ async def force_join(c, m) -> None:
             return
         except Exception as e:
             log.error(str(e))
+            return
