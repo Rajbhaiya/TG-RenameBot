@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-from utils.database.Thumbnail import get_all_chats
+from root.utils.database.Thumbnail import get_all_chats
 import os
 from root.config import Config
 from root.messages import Translation
