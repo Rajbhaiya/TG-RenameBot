@@ -19,7 +19,7 @@ log = logging.getLogger(__name__)
 async def force_join(c, m):
     if Config.FORCEJOIN != "":
         try:
-            user_state = await c.get_chat_member(Config.FORCEJOIN_ID, msg.from_user.id)
+            user_state = await c.get_chat_member(Config.FORCEJOIN_ID, m.from_user.id)
             if user_state.status == "kicked":
                 await m.reply_text("You were kicked from the chat. You can't use this bot.")
                 return
