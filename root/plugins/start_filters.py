@@ -58,9 +58,6 @@ async def force_join(c, m) -> None:
         except UsernameNotOccupied:
             renamelog.error("Invalid FORCEJOIN ID can find that chat.")
             return
-        except:
-            renamelog.exception("The ID should be of the channel/ group that you want the user to join.")
-            return
         except Exception as e:
             log.error(str(e))
             return
