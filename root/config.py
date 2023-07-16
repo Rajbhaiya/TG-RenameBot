@@ -20,4 +20,4 @@ class Config(object):
     # owner is for log cmd only owner can use (this can be multiple users)
     OWNER_ID = [int(i) for i in os.environ.get("OWNER_ID", "5591954930")]
     FORCEJOIN = os.environ.get("FORCEJOIN", "https://t.me/Wizard_Bots")
-    FORCEJOIN_ID = os.environ.get("FORCEJOIN_ID", "-1OO1721659524")
+    FORCEJOIN_ID = int(os.environ.get("FORCEJOIN_ID", "-1OO1721659524"))
