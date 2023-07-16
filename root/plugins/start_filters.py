@@ -41,7 +41,7 @@ async def log_msg(c,m):
   else:
     await z.edit_text("Log file not found")
 
-async def force_join(client: Client, msg: Message) -> None:
+async def force_join(c, m) -> None:
     if Config.FORCEJOIN != "":
         try:
             user_state = await client.get_chat_member(Config.FORCEJOIN_ID, msg.from_user.id)
