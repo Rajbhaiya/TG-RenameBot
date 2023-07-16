@@ -6,7 +6,11 @@ from root.messages import Translation
 
 log = logging.getLogger(__name__)
 
-
+@Client.on_message(filters.command("stats") & filters.user(int(Config.OWNER_ID))
+async def gistat(c, m):
+    al = get_all_chats()
+    await message.reply_text(f"Total Chats in Database - {len(al)}", quote=True)
+    
 @Client.on_message(filters.command("broadcast") & filters.user(Config.OWNER_ID))
 async def bcast(c, m):
     if message.reply_to_message:
@@ -34,8 +38,3 @@ async def bcast(c, m):
       await message.reply_document("ErrorReport.txt", caption="Errors on Broadcast")
       os.remove("ErrorReport.txt")
     await m.delete()
-
-@Client.on_message(filters.command("stats") & filters.user(int(Config.OWNER_ID))
-async def gistat(c, m):
-    al = get_all_chats()
-    await message.reply_text(f"Total Chats in Database - {len(al)}", quote=True)
