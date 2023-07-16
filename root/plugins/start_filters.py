@@ -8,6 +8,7 @@ Dont kang !!!
 import os, logging
 from pyrogram import Client,filters
 from pyrogram.types import InlineKeyboardMarkup,InlineKeyboardButton
+from pyrogram.errors import UserNotParticipant, ChatAdminRequired, UsernameNotOccupied
 from root.config import Config
 from root.messages import Translation
 
@@ -61,3 +62,5 @@ async def force_join(c, m):
         except Exception as e:
             log.error(str(e))
             return
+
+    await msg.continue_propagation()
