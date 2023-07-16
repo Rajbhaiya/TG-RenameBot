@@ -7,7 +7,7 @@ from root.messages import Translation
 log = logging.getLogger(__name__)
 
 @Client.on_message(filters.command("stats") & filters.user(int(Config.OWNER_ID))
-async def gistat(c, m):
+async def gi_stat(c, m):
     al = get_all_chats()
     await message.reply_text(f"Total Chats in Database - {len(al)}", quote=True)
     
