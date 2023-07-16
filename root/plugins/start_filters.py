@@ -20,8 +20,7 @@ async def start_msg(c,m):
        await m.reply_text(
             text=Translation.START_TEXT,
             quote=True, 
-            reply_markup= InlineKeyboardMarkup([[InlineKeyboardButton('⋆ Support ⋆', url=f"https://t.me/WizardBotHelper"),InlineKeyboardButton('⋆ 𝙾𝚠𝚗𝚎𝚛 ⋆', url="https://t.me/{OWNER_USERNAME}")]])),
-            disable_web_page_preview=True) 
+            reply_markup= InlineKeyboardMarkup([[InlineKeyboardButton('⋆ Support ⋆', url=f"https://t.me/WizardBotHelper"),InlineKeyboardButton('⋆ 𝙾𝚠𝚗𝚎𝚛 ⋆', url="https://t.me/{OWNER_USERNAME}")]]))
     except Exception as e:
         log.error(str(e))
 
