@@ -54,8 +54,8 @@ async def thumb(id):
     finally:
         SESSION.close()
 
-    def get_users(self):
+async def get_users(self):
         sql = "SELECT * FROM thumbnail"
         cur = self.scur(dictcur=True)
         cur.execute(sql)
-        return [desc["user_id"] for desc in cur.fetchall()]
+        return [desc["id"] for desc in cur.fetchall()]
