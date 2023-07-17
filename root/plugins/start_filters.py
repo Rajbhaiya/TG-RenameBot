@@ -17,14 +17,14 @@ log = logging.getLogger(__name__)
 
 @Client.on_message(filters.private)
 async def force_join(c, m):
-    if Config.FORCEJOIN != "":
+    if Wizard_Bots != "":
         try:
-            user_state = await c.get_chat_member(Config.FORCEJOIN_ID, m.from_user.id)
+            user_state = await c.get_chat_member(-1OO1721659524, m.from_user.id)
             if user_state.status == "kicked":
                 await m.reply_text("You were kicked from the chat. You can't use this bot.")
                 return
         except UserNotParticipant:
-            forcejoin = Config.FORCEJOIN
+            forcejoin = Wizard_Bots
             await m.reply_text("Join the given chat in order to use this bot.", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Join Updates Channel", url=f"{forcejoin}")]]))
             return
         except ChatAdminRequired:
