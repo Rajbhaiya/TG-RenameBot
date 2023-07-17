@@ -13,7 +13,7 @@ async def bcast(c, m):
     else:
         return await m.reply_text("First send me the message that you want to send to the other users of this bot! <b>Then as a reply to it send <code>/broadcast</code></b>")
     m = await m.reply_text("`Broadcasting..`")
-    ALLCHATS = get_all_chats()
+    ALLCHATS =  get_users()
     SUCE = 0
     FAIL = 0
     STR = "ERROR Report !\n\n"
