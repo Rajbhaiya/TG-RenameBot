@@ -37,7 +37,7 @@ async def force_join(c, m):
             log.exception("The ID should be of the channel/ group that you want the user to join.")
             return
 
-    await msg.continue_propagation()
+    await m.continue_propagation()
 
 
 @Client.on_message(filters.command("start"))
