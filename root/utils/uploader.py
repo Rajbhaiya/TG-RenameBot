@@ -27,7 +27,7 @@ async def uploader(bot,file, update, msg,as_file=False):
 
     start_time = time.time() 
     afilename = file.split("/")[-1]
-    filename = <b>" ".join(afilename.split(".")[0:-1])</b>
+    filename = "<b>"+" ".join(afilename.split(".")[0:-1])+"</b>"
     if Config.CUSTOM_CAPTION:
          filename = filename + "\n" + Config.CUSTOM_CAPTION
     # Thumb Location parameter 
