@@ -19,7 +19,7 @@ log = logging.getLogger(__name__)
 async def force_join(c, m):
     if "https://t.me/Wizard_Bots" != "":
         try:
-            user_state = await c.get_chat_member('-1OO1721659524', m.from_user.id)
+            user_state = await c.get_chat_member(-1OO1721659524, m.from_user.id)
             if user_state.status == "kicked":
                 await m.reply_text("You were kicked from the chat. You can't use this bot.")
                 return
