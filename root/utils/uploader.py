@@ -27,7 +27,7 @@ async def uploader(bot,file, update, msg,as_file=False):
 
     start_time = time.time() 
     afilename = file.split("/")[-1]
-    filename = " ".join(afilename.split(".")[0:-1])
+    filename = <b>" ".join(afilename.split(".")[0:-1])</b>
     if Config.CUSTOM_CAPTION:
          filename = filename + "\n" + Config.CUSTOM_CAPTION
     # Thumb Location parameter 
@@ -45,7 +45,7 @@ async def uploader(bot,file, update, msg,as_file=False):
                force_document=True,
                thumb=thumb_image_path,
                progress=progress_for_pyrogram,
-               caption=<b>filename</b>,
+               caption=filename,
                progress_args=(
         	      	     Translation.UPLOAD_MSG,
         	      	     msg,
@@ -98,7 +98,7 @@ async def uploader(bot,file, update, msg,as_file=False):
          	        height=height,
          	        thumb=thumb_image_path,
                     disable_notification=True,
-                    caption=<b>filename</b>,
+                    caption=filename,
          	        supports_streaming=True,
          	        progress=progress_for_pyrogram,
                         progress_args=(
@@ -137,7 +137,7 @@ async def uploader(bot,file, update, msg,as_file=False):
         	    audio=file,
                  quote=True,
                  thumb=thumb_image_path,
-           	    caption=<b>filename</b>,
+           	    caption=filename,
            	    duration=duration,
            	    performer=artist,
            	    title=title,
