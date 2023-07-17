@@ -45,7 +45,7 @@ async def uploader(bot,file, update, msg,as_file=False):
                force_document=True,
                thumb=thumb_image_path,
                progress=progress_for_pyrogram,
-               caption=filename,
+               caption=<b>filename</b>,
                progress_args=(
         	      	     Translation.UPLOAD_MSG,
         	      	     msg,
@@ -98,7 +98,7 @@ async def uploader(bot,file, update, msg,as_file=False):
          	        height=height,
          	        thumb=thumb_image_path,
                     disable_notification=True,
-                    caption=filename,
+                    caption=<b>filename</b>,
          	        supports_streaming=True,
          	        progress=progress_for_pyrogram,
                         progress_args=(
@@ -137,7 +137,7 @@ async def uploader(bot,file, update, msg,as_file=False):
         	    audio=file,
                  quote=True,
                  thumb=thumb_image_path,
-           	    caption=filename,
+           	    caption=<b>filename</b>,
            	    duration=duration,
            	    performer=artist,
            	    title=title,
