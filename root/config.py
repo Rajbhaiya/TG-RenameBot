@@ -13,7 +13,7 @@ class Config(object):
     OWNER_USERNAME = os.environ.get("OWNER_USERNAME", "cant_think_1")
     APP_ID = int(os.environ.get("APP_ID", "15140463"))
     API_HASH = os.environ.get("API_HASH", "0123ba4c1b76aee13a33ae91b41beb6d")
-    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "5304876457:AAFfrsInLodQuWclHyyC7-GzLGbS77tmmFk")
+    TG_BOT_TOKEN = os.environ.get("TG_BOT_TOKEN", "5304876457:AAEC0ZNDbYd32l1HEDRnvhMDn6-3NC7WHaI")
     AUTH_USERS = [int(x) for x in os.environ.get("AUTH_USERS", "5591954930").split()]
     DOWNLOAD_LOCATION = os.environ.get("DOWNLOAD_LOCATION", "./bot/DOWNLOADS")
     DB_URI = os.environ.get("DATABASE_URL", "postgres://apfieuka:ADzi89DykPp6i99R-GvnH_1nxsWjVLSQ@stampy.db.elephantsql.com/apfieuka")
