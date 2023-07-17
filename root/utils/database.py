@@ -54,8 +54,8 @@ async def thumb(id):
     finally:
         SESSION.close()
 
-async def get_users(self):
-        sql = "SELECT * FROM thumbnail"
-        cur = self.scur(dictcur=True)
-        cur.execute(sql)
-        return [desc["id"] for desc in cur.fetchall()]
+def get_users():
+    with INSERTION_LOCK:
+        users = SESSION.query(Thumbnail).all()
+        user_ids = [user.id for user in users]
+        return user_ids
